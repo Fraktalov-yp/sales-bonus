@@ -48,7 +48,15 @@ function analyzeSalesData(data, options) {
   const { calculateRevenue, calculateBonus } = options; // Сюда передадим функции для расчётов
 
   // Проверка входных данных
-  if (!data || !Array.isArray(data.sellers) || data.sellers.length === 0) {
+  if (
+    !data ||
+    !Array.isArray(data.sellers) ||
+    !Array.isArray(data.products) ||
+    !Array.isArray(data.purchase_records) ||
+    data.sellers.length === 0 ||
+    data.products.length === 0 ||
+    data.purchase_records.length === 0
+  ) {
     throw new Error("Некорректные входные данные");
   }
 
